@@ -1,24 +1,42 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```mermaid
+erDiagram
+    BLOGS {
+        int id PK
+        string title
+        text content
+        string image
+        datetime created_at
+        datetime updated_at
+        int user_id FK
+    }
 
-Things you may want to cover:
+    EVENTS {
+        int id PK
+        string title
+        text description
+        date date
+        time start_time
+        time end_time
+        string location
+        decimal price
+        string image
+        string organizer_name
+        string organizer_email
+        string organizer_website
+        int user_id FK
+    }
 
-* Ruby version
+    USERS {
+        int id PK
+        string name
+        string email
+        string password
+        datetime created_at
+        datetime updated_at
+    }
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    USERS ||--o{ BLOGS : "creates"
+    USERS ||--o{ EVENTS : "creates"
+```
