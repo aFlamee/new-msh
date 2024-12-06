@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./:/app"
+    command: rails server -b 0.0.0.0
+
+  tailwind:
+    build: .
+    volumes:
+      - "./:/app"
+    command: rails tailwindcss:watch
+    stdin_open: true
