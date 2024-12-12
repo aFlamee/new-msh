@@ -5,7 +5,8 @@ services:
       - "3000:3000"
     volumes:
       - "./:/app"
-    command: rails server -b 0.0.0.0
+    command: bash -c "rails db:migrate && rails db:seed && rails server -b 0.0.0.0"
+
 
   tailwind:
     build: .
